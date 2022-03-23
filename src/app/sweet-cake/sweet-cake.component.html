@@ -1,0 +1,47 @@
+<h1>Adjust Cake</h1>
+<hr>
+<form #f="ngForm" (ngSubmit)="adjustCake(f)">
+    <input type="text" ngModel placeholder="Cake Name"  name="cakeName">
+    <br>
+    <br>
+    <h3>Choose Type</h3>
+    <div>
+        <input type="radio" id="choclate" ngModel name="cake" value="choclate"
+               checked>
+        <label for="choclate">Choclate</label>
+      </div>
+      
+      <div>
+        <input type="radio" id="cheese" name="cake" ngModel value="cheese">
+        <label for="cheese">Cheese</label>
+      </div>
+      
+      <div>
+        <input type="radio" id="carrot" name="cake" ngModel value="carrot">
+        <label for="carrot">Carrot</label>
+      </div>
+      <br>
+      <br>
+    <input type="text" ngModel placeholder="Cake Tags" checked="" name="cakeTags">
+    <button>Submit</button>
+ 
+  
+</form>
+<div>
+  <h2>Cake Details</h2>
+  <hr>
+
+     <p>Cake Name : {{cake.cakeName}}</p>
+     <ul>
+       <p>cake Tags</p>
+       <li *ngFor="let i of cake.cakeTags">{{i}}</li>
+     </ul>
+   
+
+
+   <br>
+   <br>
+   <h2 *ngIf="showTitle">Look At this Cake</h2>
+   <img src="{{cake.img}}" alt="Choose Cake" *ngIf="showTitle">
+
+</div>
